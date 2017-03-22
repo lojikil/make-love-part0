@@ -1,6 +1,6 @@
 # Make Love! -- The lojikil way
 
-**part 0**
+**part 0**: the heart is a random thing
 
 ---
 
@@ -58,7 +58,7 @@
 # PRNG
 
 - simple mathematical formula
-- easy to implement (LCG ≈ 1 line of code)
+- easy to implement (LCG â‰ˆ 1 line of code)
 - `X[n + 1] = (a * X[n] + c) mod m`
 - `a`, `c`, `m` all have mathematical relationships
 
@@ -151,11 +151,11 @@ arc4random(void)
 # Yarrow-ish (cont.)
 
 - `E()` := XTea (64-bit block cipher)
-- `Pg` := n/3 ≈ 21
+- `Pg` := n/3 ~~ 21
 - Key := random (chosen by fair roll of dice)
 - Repool ever `Pg` block outputs
-- Counter = (0 → ∞) mod key size
-- output: `E(counter, 
+- Counter = (0 -> inf) mod key size
+- output: `E(counter, key)`
 
 --- 
 
@@ -242,8 +242,8 @@ xtea_rand() {
 
 # Testing
 
-- rigorous testing: 20k samples from each
-- rigorous testing: Burp Sequencer 
+- "rigorous" testing: 20k samples from each
+- "rigorous" testing: Burp Sequencer 
 
 ---
 
@@ -258,17 +258,23 @@ aka "who cares?" (Russian Accent)
 
 # LCG
 
+~ 17 bits of entropy
+
 ![](lcg-seq.png)
 
 ---
 
 # arc4random
 
+~ 17 bits of entropy
+
 ![](arc4random-seq.png)
 
 ---
 
 # Yarrow-ish
+
+~ **22** bits of entropy!
 
 ![](yarrow-seq.png)
 
