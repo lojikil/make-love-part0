@@ -58,7 +58,7 @@
 # PRNG
 
 - simple mathematical formula
-- easy to implement (LCG â‰ˆ 1 line of code)
+- easy to implement (LCG ~~ 1 line of code)
 - `X[n + 1] = (a * X[n] + c) mod m`
 - `a`, `c`, `m` all have mathematical relationships
 
@@ -153,7 +153,7 @@ arc4random(void)
 - `E()` := XTea (64-bit block cipher)
 - `Pg` := n/3 ~~ 21
 - Key := random (chosen by fair roll of dice)
-- Repool ever `Pg` block outputs
+- Repool every `Pg` block outputs
 - Counter = (0 -> inf) mod key size
 - output: `E(counter, key)`
 
@@ -195,7 +195,9 @@ encipher(uint32_t* v, uint32_t* k)
 ```
 uint64_t
 xtea_rand() {
-    static uint32_t blocks_output = 0, key[4] = {0x00000000, 0x3b6e20c8, 0x76dc4190, 0x4db26158};
+    /* initial key from CRC32 spec */
+    static uint32_t blocks_output = 0, key[4] = 
+    {0x00000000, 0x3b6e20c8, 0x76dc4190, 0x4db26158};
     static uint64_t ctr = 0;
     uint32_t vcounter[2] = {0};
     uint64_t res = 0;
