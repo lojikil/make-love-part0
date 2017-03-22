@@ -1,0 +1,5 @@
+*.swp
+*.o
+urand_csprng
+xtea_csprng
+data*
